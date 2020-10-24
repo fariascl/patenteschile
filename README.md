@@ -7,7 +7,7 @@ Uso:
 ```python
 from patenteschile import Patente
 
-patentes = Patentes()
+patentes = Patente()
 cant = 2 # cantidad de patentes
 print(patentes.generate(cant))
 ```
