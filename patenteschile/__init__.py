@@ -1,1 +1,1 @@
-from .patenteschile import Patente
+from .main import Patente
