@@ -11,7 +11,7 @@ import sys
 import rstr
 import re
 
-class Patente():
+class Patente:
 	def calculate_patente(self):
 		words = rstr.xeger(r"[B-Z]{4}\d")
 		number = rstr.xeger(r"[10-99]{1}")
