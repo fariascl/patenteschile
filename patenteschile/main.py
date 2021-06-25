@@ -15,8 +15,15 @@ class Patente:
 	def calculate_patente(self):
 		words = rstr.xeger(r"[B-Z]{4}\d")
 		number = rstr.xeger(r"[10-99]{1}")
-		filter = ['A','E','I','M','N','Ñ','O','Q','U']
-		return words + number # concat letras y numeros
+		inthere = False
+		filters = ['A','E','I','M','N','Ñ','O','Q','U']
+		for word in words:
+			for filter in filters:
+				if (word == filter):
+					inthere = True
+		patente = f"{words} + {numbers}"
+		if (inthere == False):
+			return patente
 
 	def generate(self, num: int):
 		patentes = []
