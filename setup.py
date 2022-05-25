@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="patenteschile",
-    version="0.1",
+    version="0.1.2",
     author="Alejandro Farías",
     author_email="farias@8loop.cl",
     description="A small library for generate chilean car registration number",
@@ -13,6 +13,7 @@ setuptools.setup(
     long_description_content_type="text/markdown",
     url="https://github.com/fariascl/patentechile",
     packages=setuptools.find_packages(),
+    install_requires=['rstr==3.1.0'],
     classifiers=[
         "Programming Language :: Python :: 3",
         "License :: OSI Approved :: MIT License",
