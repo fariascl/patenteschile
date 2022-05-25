@@ -1,15 +1,13 @@
-# patentevalida.py
 # Autor: Alejandro (farias@8loop.cl)
 # Esta librería genera patentes vehículares válidas
 """
-for patentevalida import Patente
+for patenteschile import Patente
 patentes = Patente()
 print(patentes.generate(10))
 """
 
 import sys
 import rstr
-import re
 
 class Patente:
 	def calculate_patente(self):
