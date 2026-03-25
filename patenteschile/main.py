@@ -11,13 +11,13 @@ class Patente:
     FORMATS = {
         "auto": {
             "current": {
-                "pattern": r"^([B-Z]{4})-([1-9][0-9])$",
+                "pattern": r"^([B-Z]{4})([1-9][0-9])$",
                 "letters": 4,
                 "numbers": 2,
                 "blocked": CURRENT_BLOCKED
             },
             "old": {
-                "pattern": r"^([A-Z]{2})-(\d{4})$",
+                "pattern": r"^([A-Z]{2})(\d{4})$",
                 "letters": 2,
                 "numbers": 4,
                 "blocked": OLD_BLOCKED
@@ -25,13 +25,13 @@ class Patente:
         },
         "moto": {
             "current": {
-                "pattern": r"^([B-Z]{2})-(\d{3})$",
+                "pattern": r"^([B-Z]{2})(\d{3})$",
                 "letters": 2,
                 "numbers": 3,
                 "blocked": CURRENT_BLOCKED
             },
             "old": {
-                "pattern": r"^([B-Z]{2})-(\d{3})$",
+                "pattern": r"^([B-Z]{2})(\d{3})$",
                 "letters": 2,
                 "numbers": 3,
                 "blocked": CURRENT_BLOCKED
@@ -39,7 +39,7 @@ class Patente:
         },
         "remolque_liviano": {
             "old": {
-                "pattern": r"^([A-Z]{2})-(\d{4})$",
+                "pattern": r"^([A-Z]{2})(\d{4})$",
                 "letters": 2,
                 "numbers": 4,
                 "blocked": OLD_BLOCKED
@@ -47,7 +47,7 @@ class Patente:
         },
         "remolque_pesado": {
             "old": {
-                "pattern": r"^([A-Z]{2})-(\d{4})$",
+                "pattern": r"^([A-Z]{2})(\d{4})$",
                 "letters": 2,
                 "numbers": 4,
                 "blocked": OLD_BLOCKED
@@ -61,12 +61,12 @@ class Patente:
                 letters = rstr.xeger(r"[B-Z]{4}")
                 if not any(c not in self.CURRENT_CONSONANTS for c in letters):
                     number = rstr.xeger(r"[1-9][0-9]")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
             elif vehicle_type == "moto":
                 letters = rstr.xeger(r"[B-Z]{2}")
                 if not any(c not in self.CURRENT_CONSONANTS for c in letters):
                     number = rstr.xeger(r"[1-9]\d{2}")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
 
     def generate_old(self, vehicle_type="auto"):
         while True:
@@ -74,22 +74,22 @@ class Patente:
                 letters = rstr.xeger(r"[A-Z]{2}")
                 if not any(c in self.OLD_BLOCKED for c in letters):
                     number = rstr.xeger(r"\d{4}")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
             elif vehicle_type == "moto":
                 letters = rstr.xeger(r"[B-Z]{2}")
                 if not any(c not in self.CURRENT_CONSONANTS for c in letters):
                     number = rstr.xeger(r"[1-9]\d{2}")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
             elif vehicle_type == "remolque_liviano":
                 letters = rstr.xeger(r"[A-Z]{2}")
                 if not any(c in self.OLD_BLOCKED for c in letters):
                     number = rstr.xeger(r"\d{4}")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
             elif vehicle_type == "remolque_pesado":
                 letters = rstr.xeger(r"[A-Z]{2}")
                 if not any(c in self.OLD_BLOCKED for c in letters):
                     number = rstr.xeger(r"\d{4}")
-                    return f"{letters}-{number}"
+                    return f"{letters}{number}"
 
     def generate(self, num: int, system="current", vehicle_type="auto"):
         if system == "current":
