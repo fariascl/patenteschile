@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="patenteschile",
-    version="0.1.2",
+    version="0.1.3",
     author="Alejandro Farías",
     author_email="farias@8loop.cl",
     description="A small library for generate chilean car registration number",
